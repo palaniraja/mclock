@@ -1,0 +1,285 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AE6872841446103600ABF25B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6872831446103600ABF25B /* Cocoa.framework */; };
+		AE68728E1446103600ABF25B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AE68728C1446103600ABF25B /* InfoPlist.strings */; };
+		AE6872911446103600ABF25B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6872901446103600ABF25B /* main.m */; };
+		AE6872941446103600ABF25B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AE6872921446103600ABF25B /* Credits.rtf */; };
+		AE6872971446103600ABF25B /* mclockAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6872961446103600ABF25B /* mclockAppDelegate.m */; };
+		AE68729A1446103700ABF25B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE6872981446103700ABF25B /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AE68727F1446103600ABF25B /* mclock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mclock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE6872831446103600ABF25B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		AE6872861446103600ABF25B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		AE6872871446103600ABF25B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		AE6872881446103600ABF25B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AE68728B1446103600ABF25B /* mclock-Info.plist */ = {isa = PBXFileReference; path = "mclock-Info.plist"; sourceTree = "<group>"; };
+		AE68728D1446103600ABF25B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AE68728F1446103600ABF25B /* mclock-Prefix.pch */ = {isa = PBXFileReference; path = "mclock-Prefix.pch"; sourceTree = "<group>"; };
+		AE6872901446103600ABF25B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AE6872931446103600ABF25B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		AE6872951446103600ABF25B /* mclockAppDelegate.h */ = {isa = PBXFileReference; path = mclockAppDelegate.h; sourceTree = "<group>"; };
+		AE6872961446103600ABF25B /* mclockAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mclockAppDelegate.m; sourceTree = "<group>"; };
+		AE6872991446103700ABF25B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AE68727C1446103600ABF25B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE6872841446103600ABF25B /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AE6872741446103600ABF25B = {
+			isa = PBXGroup;
+			children = (
+				AE6872891446103600ABF25B /* mclock */,
+				AE6872821446103600ABF25B /* Frameworks */,
+				AE6872801446103600ABF25B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AE6872801446103600ABF25B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AE68727F1446103600ABF25B /* mclock.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AE6872821446103600ABF25B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE6872831446103600ABF25B /* Cocoa.framework */,
+				AE6872851446103600ABF25B /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AE6872851446103600ABF25B /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE6872861446103600ABF25B /* AppKit.framework */,
+				AE6872871446103600ABF25B /* CoreData.framework */,
+				AE6872881446103600ABF25B /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		AE6872891446103600ABF25B /* mclock */ = {
+			isa = PBXGroup;
+			children = (
+				AE6872951446103600ABF25B /* mclockAppDelegate.h */,
+				AE6872961446103600ABF25B /* mclockAppDelegate.m */,
+				AE6872981446103700ABF25B /* MainMenu.xib */,
+				AE68728A1446103600ABF25B /* Supporting Files */,
+			);
+			path = mclock;
+			sourceTree = "<group>";
+		};
+		AE68728A1446103600ABF25B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AE68728B1446103600ABF25B /* mclock-Info.plist */,
+				AE68728C1446103600ABF25B /* InfoPlist.strings */,
+				AE68728F1446103600ABF25B /* mclock-Prefix.pch */,
+				AE6872901446103600ABF25B /* main.m */,
+				AE6872921446103600ABF25B /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AE68727E1446103600ABF25B /* mclock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE68729D1446103700ABF25B /* Build configuration list for PBXNativeTarget "mclock" */;
+			buildPhases = (
+				AE68727B1446103600ABF25B /* Sources */,
+				AE68727C1446103600ABF25B /* Frameworks */,
+				AE68727D1446103600ABF25B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = mclock;
+			productName = mclock;
+			productReference = AE68727F1446103600ABF25B /* mclock.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AE6872761446103600ABF25B /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = AE6872791446103600ABF25B /* Build configuration list for PBXProject "mclock" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AE6872741446103600ABF25B;
+			productRefGroup = AE6872801446103600ABF25B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AE68727E1446103600ABF25B /* mclock */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AE68727D1446103600ABF25B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE68728E1446103600ABF25B /* InfoPlist.strings in Resources */,
+				AE6872941446103600ABF25B /* Credits.rtf in Resources */,
+				AE68729A1446103700ABF25B /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AE68727B1446103600ABF25B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE6872911446103600ABF25B /* main.m in Sources */,
+				AE6872971446103600ABF25B /* mclockAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AE68728C1446103600ABF25B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE68728D1446103600ABF25B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AE6872921446103600ABF25B /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE6872931446103600ABF25B /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		AE6872981446103700ABF25B /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE6872991446103700ABF25B /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AE68729B1446103700ABF25B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		AE68729C1446103700ABF25B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		AE68729E1446103700ABF25B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "mclock/mclock-Prefix.pch";
+				INFOPLIST_FILE = "mclock/mclock-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AE68729F1446103700ABF25B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "mclock/mclock-Prefix.pch";
+				INFOPLIST_FILE = "mclock/mclock-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AE6872791446103600ABF25B /* Build configuration list for PBXProject "mclock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE68729B1446103700ABF25B /* Debug */,
+				AE68729C1446103700ABF25B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE68729D1446103700ABF25B /* Build configuration list for PBXNativeTarget "mclock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE68729E1446103700ABF25B /* Debug */,
+				AE68729F1446103700ABF25B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AE6872761446103600ABF25B /* Project object */;
+}
