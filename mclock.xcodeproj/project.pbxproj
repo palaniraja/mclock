@@ -13,6 +13,8 @@
 		AE6872941446103600ABF25B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AE6872921446103600ABF25B /* Credits.rtf */; };
 		AE6872971446103600ABF25B /* mclockAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6872961446103600ABF25B /* mclockAppDelegate.m */; };
 		AE68729A1446103700ABF25B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE6872981446103700ABF25B /* MainMenu.xib */; };
+		AE6872AA1446126400ABF25B /* menuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6872A91446126400ABF25B /* menuItem.m */; };
+		AE6872AE14461C6A00ABF25B /* mclock.png in Resources */ = {isa = PBXBuildFile; fileRef = AE6872AD14461C6A00ABF25B /* mclock.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,14 +23,17 @@
 		AE6872861446103600ABF25B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		AE6872871446103600ABF25B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		AE6872881446103600ABF25B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		AE68728B1446103600ABF25B /* mclock-Info.plist */ = {isa = PBXFileReference; path = "mclock-Info.plist"; sourceTree = "<group>"; };
+		AE68728B1446103600ABF25B /* mclock-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mclock-Info.plist"; sourceTree = "<group>"; };
 		AE68728D1446103600ABF25B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		AE68728F1446103600ABF25B /* mclock-Prefix.pch */ = {isa = PBXFileReference; path = "mclock-Prefix.pch"; sourceTree = "<group>"; };
+		AE68728F1446103600ABF25B /* mclock-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mclock-Prefix.pch"; sourceTree = "<group>"; };
 		AE6872901446103600ABF25B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AE6872931446103600ABF25B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		AE6872951446103600ABF25B /* mclockAppDelegate.h */ = {isa = PBXFileReference; path = mclockAppDelegate.h; sourceTree = "<group>"; };
+		AE6872951446103600ABF25B /* mclockAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mclockAppDelegate.h; sourceTree = "<group>"; };
 		AE6872961446103600ABF25B /* mclockAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mclockAppDelegate.m; sourceTree = "<group>"; };
 		AE6872991446103700ABF25B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		AE6872A81446126400ABF25B /* menuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = menuItem.h; sourceTree = "<group>"; };
+		AE6872A91446126400ABF25B /* menuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = menuItem.m; sourceTree = "<group>"; };
+		AE6872AD14461C6A00ABF25B /* mclock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mclock.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +51,7 @@
 		AE6872741446103600ABF25B = {
 			isa = PBXGroup;
 			children = (
+				AE6872AD14461C6A00ABF25B /* mclock.png */,
 				AE6872891446103600ABF25B /* mclock */,
 				AE6872821446103600ABF25B /* Frameworks */,
 				AE6872801446103600ABF25B /* Products */,
@@ -84,6 +90,8 @@
 			children = (
 				AE6872951446103600ABF25B /* mclockAppDelegate.h */,
 				AE6872961446103600ABF25B /* mclockAppDelegate.m */,
+				AE6872A81446126400ABF25B /* menuItem.h */,
+				AE6872A91446126400ABF25B /* menuItem.m */,
 				AE6872981446103700ABF25B /* MainMenu.xib */,
 				AE68728A1446103600ABF25B /* Supporting Files */,
 			);
@@ -152,6 +160,7 @@
 				AE68728E1446103600ABF25B /* InfoPlist.strings in Resources */,
 				AE6872941446103600ABF25B /* Credits.rtf in Resources */,
 				AE68729A1446103700ABF25B /* MainMenu.xib in Resources */,
+				AE6872AE14461C6A00ABF25B /* mclock.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +173,7 @@
 			files = (
 				AE6872911446103600ABF25B /* main.m in Sources */,
 				AE6872971446103600ABF25B /* mclockAppDelegate.m in Sources */,
+				AE6872AA1446126400ABF25B /* menuItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
