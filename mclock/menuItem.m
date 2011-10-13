@@ -48,7 +48,7 @@
     zone = [[NSString stringWithFormat:@"IST"] retain]; //CST
     
     formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"h.m a"];
+    [formatter setDateFormat:@"h.mm a"];
     [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:zone]]; 
     
     [self updateLabel:nil];
