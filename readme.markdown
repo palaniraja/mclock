@@ -1,10 +1,13 @@
-#mclock
+#mclock   
 
-Additional clock on your mac menu bar. 
+Additional menu clock for your Mac. A minimalist clock to display time of different timezone of your choice.   
 
-I need a free additional clock that could display timezone of my choice, as I set my system timezone to CST for testing a project. 
+Power to you.  
 
-I wish I could update this with little more customization option. Don't hold your breath, as I ain't a good finisher :)
+
+![mclock in action](https://github.com/palaniraja/mclock/raw/master/screenshots/mclock-in-action.png "mclock in action")
+
+![Preferences](https://github.com/palaniraja/mclock/raw/master/screenshots/preferences.png "Preferences")
 
 ***
 ###License
