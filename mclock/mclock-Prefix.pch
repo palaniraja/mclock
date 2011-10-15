@@ -5,3 +5,12 @@
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
 #endif
+
+
+// Constants used in Preference 
+
+#define kZoneString @"ZoneString"
+#define kDisplayFormatString @"DisplayFormatString"
+#define kDisplayZonePrefix @"DisplayZonePrefix"
+
+#define kPreferencesUpdated @"PreferencesUpdated"

@@ -29,6 +29,7 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
+    [self revertPrefences:nil];
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
@@ -40,9 +41,55 @@
 		NSLog(@"init failed in PreferenceWindowController");
 		return nil;
 	} // end if
-	NSLog(@"init OK in PreferenceWindowController");
+
+//	NSLog(@"init OK in PreferenceWindowController");
 	
 	return self;
 } // end init
+
+#pragma mark -
+#pragma mark UIAction
+- (IBAction) savePrefences:(id) sender{
+    
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:[timeZone stringValue] forKey:kZoneString];
+    [ud setObject:[formatString stringValue] forKey:kDisplayFormatString];
+    [ud setBool:[displayPrefix state] forKey:kDisplayZonePrefix];
+    [ud synchronize];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kPreferencesUpdated object:self];
+    
+    [self close];
+    
+}
+
+- (IBAction) revertPrefences:(id) sender{
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [timeZone setStringValue:[ud objectForKey:kZoneString]];
+    [formatString setStringValue:[ud objectForKey:kDisplayFormatString]]; 
+    [displayPrefix setState:[ud boolForKey:kDisplayZonePrefix]];
+    
+    [previewString setStringValue:@""];
+}
+
+- (IBAction) preview:(id) sender{
+    
+    NSString *zone = [NSString stringWithFormat:[timeZone stringValue]];
+    
+    NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
+    [formatter setDateFormat:[formatString stringValue]];
+    [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:zone]]; 
+    
+    NSString *prefix;
+    
+    if ([displayPrefix state]) {
+        prefix = [NSString stringWithFormat:@"%@ ", zone];
+    }else{
+        prefix = [NSString stringWithFormat:@""];
+    }
+
+    
+    [previewString setStringValue:[NSString stringWithFormat:@"%@ %@", prefix, [formatter stringFromDate:[NSDate date]]]];
+}
 
 @end

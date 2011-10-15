@@ -98,9 +98,9 @@
 				AE6872A81446126400ABF25B /* menuItem.h */,
 				AE6872A91446126400ABF25B /* menuItem.m */,
 				AE6872981446103700ABF25B /* MainMenu.xib */,
-				AEFDAB3F144A073400A9B51B /* PreferenceWindow.xib */,
 				AEFDAB42144A075400A9B51B /* PreferenceWindowController.h */,
 				AEFDAB43144A075400A9B51B /* PreferenceWindowController.m */,
+				AEFDAB3F144A073400A9B51B /* PreferenceWindow.xib */,
 				AE68728A1446103600ABF25B /* Supporting Files */,
 			);
 			path = mclock;

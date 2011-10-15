@@ -19,6 +19,9 @@
     NSTimer *updateTimer;
     
     NSString *zone;
+    NSString *formatString;
+    NSString *prefix;
+    
     IBOutlet NSMenu *statusMenu;
     
     PreferenceWindowController *prefWindow;
@@ -28,5 +31,7 @@
 -(void) updateLabel:(id)sender;
 
 -(IBAction) showPreferences:(id)sender;
+
+- (void) reload: (id)notification;
 
 @end

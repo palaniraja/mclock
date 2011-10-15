@@ -27,14 +27,20 @@
     [formatter release];
     [updateTimer release];
     [zone release];
+    [formatString release];
     [statusItem release];
-    [prefWindow release];
+    [prefix release];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
     [super dealloc];
 }
 
 #pragma mark -
 -(void) updateLabel:(id)sender{
-    [statusItem setTitle:[NSString stringWithFormat:@"%@ %@", zone, [formatter stringFromDate:[NSDate date]]]];
+    
+//    NSLog(@"Zone: %@ formatString: %@", zone, formatString);
+    
+    [statusItem setTitle:[NSString stringWithFormat:@"%@%@", prefix, [formatter stringFromDate:[NSDate date]]]];
 }
 
 - (void)awakeFromNib{
@@ -48,12 +54,15 @@
     [statusItem setMenu:statusMenu];
     
     zone = [[NSString stringWithFormat:@"CST"] retain]; //CST
+    formatString = [[NSString stringWithFormat:@"h.mm a"] retain];  //HH:MM
+    prefix = [[NSString stringWithFormat:@"%@ ", zone] retain];
     
     formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"h.mm a"];
+    [formatter setDateFormat:formatString];
     [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:zone]]; 
     
-    [self updateLabel:nil];
+    [self reload:nil];
+    
     
     updateTimer =[[NSTimer scheduledTimerWithTimeInterval:60.0
                                      target:self
@@ -62,14 +71,61 @@
                                     repeats:YES] retain];
     [updateTimer fire];
     
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reload:) 
+                                                 name:kPreferencesUpdated
+                                               object:nil];
+    
+    
+    
+    
 }
 
 -(IBAction) showPreferences:(id)sender{
-    NSLog(@"Display Preferences window");
-    prefWindow = [[PreferenceWindowController alloc] init];
+    
+
+    if(!prefWindow){
+        prefWindow = [[PreferenceWindowController alloc] init];  
+    }
+        
+    
     [prefWindow showWindow:self];
+
+//    [prefWindow release];
 //    [prefWindow becomeFirstResponder];
 //    [[NSApplication sharedApplication] orderFrontStandardAboutPanel:self];
+    
+}
+
+
+- (void) reload: (id)notification{
+    
+    
+    if (zone) {
+        [zone release];
+    }
+    if (formatString) {
+        [formatString release];
+    }
+    
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    
+    zone = [[ud objectForKey:kZoneString] retain];
+    formatString = [[ud objectForKey:kDisplayFormatString] retain]; 
+
+    [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:zone]]; 
+    [formatter setDateFormat:formatString];
+    
+    
+    if ([ud boolForKey:kDisplayZonePrefix]) {
+        prefix = [NSString stringWithFormat:@"%@ ", zone];
+    }else{
+        prefix = [NSString stringWithFormat:@""];
+    }
+    
+    
+    [self updateLabel:nil];
     
 }
 
