@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PreferenceWindowController.h"
 
 
 @interface menuItem : NSObject {
@@ -18,9 +19,14 @@
     NSTimer *updateTimer;
     
     NSString *zone;
-    NSMenu *statusMenu;
+    IBOutlet NSMenu *statusMenu;
+    
+    PreferenceWindowController *prefWindow;
+    
 }
 
 -(void) updateLabel:(id)sender;
+
+-(IBAction) showPreferences:(id)sender;
 
 @end

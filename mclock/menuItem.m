@@ -28,6 +28,7 @@
     [updateTimer release];
     [zone release];
     [statusItem release];
+    [prefWindow release];
     [super dealloc];
 }
 
@@ -60,6 +61,15 @@
                                    userInfo:nil
                                     repeats:YES] retain];
     [updateTimer fire];
+    
+}
+
+-(IBAction) showPreferences:(id)sender{
+    NSLog(@"Display Preferences window");
+    prefWindow = [[PreferenceWindowController alloc] init];
+    [prefWindow showWindow:self];
+//    [prefWindow becomeFirstResponder];
+//    [[NSApplication sharedApplication] orderFrontStandardAboutPanel:self];
     
 }
 

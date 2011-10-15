@@ -15,6 +15,8 @@
 		AE6872971446103600ABF25B /* mclockAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6872961446103600ABF25B /* mclockAppDelegate.m */; };
 		AE68729A1446103700ABF25B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE6872981446103700ABF25B /* MainMenu.xib */; };
 		AE6872AA1446126400ABF25B /* menuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6872A91446126400ABF25B /* menuItem.m */; };
+		AEFDAB40144A073400A9B51B /* PreferenceWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEFDAB3F144A073400A9B51B /* PreferenceWindow.xib */; };
+		AEFDAB44144A075400A9B51B /* PreferenceWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEFDAB43144A075400A9B51B /* PreferenceWindowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,9 @@
 		AE6872991446103700ABF25B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		AE6872A81446126400ABF25B /* menuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = menuItem.h; sourceTree = "<group>"; };
 		AE6872A91446126400ABF25B /* menuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = menuItem.m; sourceTree = "<group>"; };
+		AEFDAB3F144A073400A9B51B /* PreferenceWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferenceWindow.xib; sourceTree = "<group>"; };
+		AEFDAB42144A075400A9B51B /* PreferenceWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceWindowController.h; sourceTree = "<group>"; };
+		AEFDAB43144A075400A9B51B /* PreferenceWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceWindowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +98,9 @@
 				AE6872A81446126400ABF25B /* menuItem.h */,
 				AE6872A91446126400ABF25B /* menuItem.m */,
 				AE6872981446103700ABF25B /* MainMenu.xib */,
+				AEFDAB3F144A073400A9B51B /* PreferenceWindow.xib */,
+				AEFDAB42144A075400A9B51B /* PreferenceWindowController.h */,
+				AEFDAB43144A075400A9B51B /* PreferenceWindowController.m */,
 				AE68728A1446103600ABF25B /* Supporting Files */,
 			);
 			path = mclock;
@@ -161,6 +169,7 @@
 				AE6872941446103600ABF25B /* Credits.rtf in Resources */,
 				AE68729A1446103700ABF25B /* MainMenu.xib in Resources */,
 				AE62A8681449ED12007A5E1C /* mclock.icns in Resources */,
+				AEFDAB40144A073400A9B51B /* PreferenceWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +183,7 @@
 				AE6872911446103600ABF25B /* main.m in Sources */,
 				AE6872971446103600ABF25B /* mclockAppDelegate.m in Sources */,
 				AE6872AA1446126400ABF25B /* menuItem.m in Sources */,
+				AEFDAB44144A075400A9B51B /* PreferenceWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
