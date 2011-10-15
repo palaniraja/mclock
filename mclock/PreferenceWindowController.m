@@ -70,6 +70,8 @@
     [displayPrefix setState:[ud boolForKey:kDisplayZonePrefix]];
     
     [previewString setStringValue:@""];
+
+    [self close];
 }
 
 - (IBAction) preview:(id) sender{
