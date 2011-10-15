@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE62A8681449ED12007A5E1C /* mclock.icns in Resources */ = {isa = PBXBuildFile; fileRef = AE62A8671449ED12007A5E1C /* mclock.icns */; };
 		AE6872841446103600ABF25B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6872831446103600ABF25B /* Cocoa.framework */; };
 		AE68728E1446103600ABF25B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AE68728C1446103600ABF25B /* InfoPlist.strings */; };
 		AE6872911446103600ABF25B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6872901446103600ABF25B /* main.m */; };
@@ -14,10 +15,10 @@
 		AE6872971446103600ABF25B /* mclockAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6872961446103600ABF25B /* mclockAppDelegate.m */; };
 		AE68729A1446103700ABF25B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE6872981446103700ABF25B /* MainMenu.xib */; };
 		AE6872AA1446126400ABF25B /* menuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6872A91446126400ABF25B /* menuItem.m */; };
-		AE6872AE14461C6A00ABF25B /* mclock.png in Resources */ = {isa = PBXBuildFile; fileRef = AE6872AD14461C6A00ABF25B /* mclock.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE62A8671449ED12007A5E1C /* mclock.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = mclock.icns; sourceTree = "<group>"; };
 		AE68727F1446103600ABF25B /* mclock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mclock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE6872831446103600ABF25B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		AE6872861446103600ABF25B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -33,7 +34,6 @@
 		AE6872991446103700ABF25B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		AE6872A81446126400ABF25B /* menuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = menuItem.h; sourceTree = "<group>"; };
 		AE6872A91446126400ABF25B /* menuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = menuItem.m; sourceTree = "<group>"; };
-		AE6872AD14461C6A00ABF25B /* mclock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mclock.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +51,7 @@
 		AE6872741446103600ABF25B = {
 			isa = PBXGroup;
 			children = (
-				AE6872AD14461C6A00ABF25B /* mclock.png */,
+				AE62A8671449ED12007A5E1C /* mclock.icns */,
 				AE6872891446103600ABF25B /* mclock */,
 				AE6872821446103600ABF25B /* Frameworks */,
 				AE6872801446103600ABF25B /* Products */,
@@ -160,7 +160,7 @@
 				AE68728E1446103600ABF25B /* InfoPlist.strings in Resources */,
 				AE6872941446103600ABF25B /* Credits.rtf in Resources */,
 				AE68729A1446103700ABF25B /* MainMenu.xib in Resources */,
-				AE6872AE14461C6A00ABF25B /* mclock.png in Resources */,
+				AE62A8681449ED12007A5E1C /* mclock.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +288,7 @@
 				AE68729F1446103700ABF25B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

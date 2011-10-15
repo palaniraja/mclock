@@ -44,8 +44,9 @@
     [statusItem setToolTip:@"Menu Clock"];
     [statusItem setAction:@selector(updateLabel:)];
     [statusItem setTarget:self];
+    [statusItem setMenu:statusMenu];
     
-    zone = [[NSString stringWithFormat:@"IST"] retain]; //CST
+    zone = [[NSString stringWithFormat:@"CST"] retain]; //CST
     
     formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"h.mm a"];

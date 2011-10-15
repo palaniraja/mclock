@@ -18,6 +18,7 @@
     NSTimer *updateTimer;
     
     NSString *zone;
+    NSMenu *statusMenu;
 }
 
 -(void) updateLabel:(id)sender;
