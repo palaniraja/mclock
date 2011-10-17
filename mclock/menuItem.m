@@ -89,12 +89,12 @@
         prefWindow = [[PreferenceWindowController alloc] init];  
     }
         
+//    [prefWindow.window setLevel:NSScreenSaverWindowLevel + 1];
+//    [prefWindow.window makeKeyAndOrderFront:nil];
+    [NSApp activateIgnoringOtherApps:YES];
     
     [prefWindow showWindow:self];
 
-//    [prefWindow release];
-//    [prefWindow becomeFirstResponder];
-//    [[NSApplication sharedApplication] orderFrontStandardAboutPanel:self];
     
 }
 
