@@ -16,6 +16,12 @@
     self = [super init];
     if (self) {
         // Initialization code here.
+        [[NSUserDefaults standardUserDefaults] registerDefaults:    
+         [NSDictionary dictionaryWithObjectsAndKeys:     
+          @"IST", kZoneString,     
+          @"hh:MM a", kDisplayFormatString,
+          [NSNumber numberWithBool:1], kDisplayZonePrefix,
+          nil]];
     }
     
     return self;
