@@ -21,6 +21,7 @@
     NSString *zone;
     NSString *formatString;
     NSString *prefix;
+    NSString *statusTitle;
     
     IBOutlet NSMenu *statusMenu;
     

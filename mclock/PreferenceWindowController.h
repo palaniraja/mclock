@@ -21,4 +21,7 @@
 - (IBAction) revertPrefences:(id) sender;
 - (IBAction) preview:(id) sender;
 
+-(IBAction) openTimeFormatRef:(id)sender;
+-(IBAction) openTimeZoneRef:(id)sender;
+
 @end

@@ -94,4 +94,14 @@
     [previewString setStringValue:[NSString stringWithFormat:@"%@ %@", prefix, [formatter stringFromDate:[NSDate date]]]];
 }
 
+#pragma mark -
+
+-(IBAction) openTimeFormatRef:(id)sender{
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://unicode.org/reports/tr35/tr35-6.html#Date_Format_Patterns"]];
+
+}
+
+-(IBAction) openTimeZoneRef:(id)sender{
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://pastebin.com/tPCTDAip"]];
+}
 @end

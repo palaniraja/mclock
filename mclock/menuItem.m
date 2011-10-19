@@ -22,6 +22,8 @@
           @"hh:MM a", kDisplayFormatString,
           [NSNumber numberWithBool:1], kDisplayZonePrefix,
           nil]];
+        
+//        NSLog(@"Timezone abbrevation: %@", [NSTimeZone abbreviationDictionary]);
     }
     
     return self;
@@ -36,6 +38,7 @@
     [formatString release];
     [statusItem release];
     [prefix release];
+//    [statusTitle release];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     [super dealloc];
@@ -45,6 +48,8 @@
 -(void) updateLabel:(id)sender{
     
 //    NSLog(@"Zone: %@ formatString: %@", zone, formatString);
+//    statusTitle = [NSString stringWithFormat:@"%@%@", prefix, [formatter stringFromDate:[NSDate date]]];
+//    NSLog(@"status title: %@", [NSString stringWithFormat:@"%@%@", prefix, [formatter stringFromDate:[NSDate date]]]);
     
     [statusItem setTitle:[NSString stringWithFormat:@"%@%@", prefix, [formatter stringFromDate:[NSDate date]]]];
 }
@@ -58,19 +63,23 @@
     [statusItem setAction:@selector(updateLabel:)];
     [statusItem setTarget:self];
     [statusItem setMenu:statusMenu];
+//    statusTitle = [[NSString alloc] init];
     
     zone = [[NSString stringWithFormat:@"CST"] retain]; //CST
-    formatString = [[NSString stringWithFormat:@"h.mm a"] retain];  //HH:MM
+    formatString = [[NSString stringWithFormat:@"h.mm.ss a"] retain];  //HH:MM
     prefix = [[NSString stringWithFormat:@"%@ ", zone] retain];
+    
+    
+  
     
     formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:formatString];
     [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:zone]]; 
     
-    [self reload:nil];
+//    [self reload:nil];
     
     
-    updateTimer =[[NSTimer scheduledTimerWithTimeInterval:60.0
+    updateTimer =[[NSTimer scheduledTimerWithTimeInterval:3.0
                                      target:self
                                    selector:@selector(updateLabel:)
                                    userInfo:nil
@@ -115,6 +124,10 @@
         [formatString release];
     }
     
+    if (prefix) {
+        [prefix release];
+    }
+    
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     
     zone = [[ud objectForKey:kZoneString] retain];
@@ -129,6 +142,9 @@
     }else{
         prefix = [NSString stringWithFormat:@""];
     }
+    
+//    NSLog(@"prefix: %@", prefix);
+    [prefix retain];
     
     
     [self updateLabel:nil];
