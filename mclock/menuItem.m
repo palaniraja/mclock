@@ -19,7 +19,7 @@
         [[NSUserDefaults standardUserDefaults] registerDefaults:    
          [NSDictionary dictionaryWithObjectsAndKeys:     
           @"IST", kZoneString,     
-          @"hh:MM a", kDisplayFormatString,
+          @"h:mm a", kDisplayFormatString,
           [NSNumber numberWithBool:1], kDisplayZonePrefix,
           nil]];
         
@@ -66,7 +66,7 @@
 //    statusTitle = [[NSString alloc] init];
     
     zone = [[NSString stringWithFormat:@"CST"] retain]; //CST
-    formatString = [[NSString stringWithFormat:@"h.mm.ss a"] retain];  //HH:MM
+    formatString = [[NSString stringWithFormat:@"h.mm a"] retain];  //HH:MM
     prefix = [[NSString stringWithFormat:@"%@ ", zone] retain];
     
     
@@ -76,10 +76,10 @@
     [formatter setDateFormat:formatString];
     [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:zone]]; 
     
-//    [self reload:nil];
+    [self reload:nil];
     
     
-    updateTimer =[[NSTimer scheduledTimerWithTimeInterval:3.0
+    updateTimer =[[NSTimer scheduledTimerWithTimeInterval:60.0
                                      target:self
                                    selector:@selector(updateLabel:)
                                    userInfo:nil
