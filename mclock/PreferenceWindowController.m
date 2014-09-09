@@ -76,7 +76,7 @@
 
 - (IBAction) preview:(id) sender{
     
-    NSString *zone = [NSString stringWithFormat:[timeZone stringValue]];
+    NSString *zone = [NSString stringWithFormat: @"%@", [timeZone stringValue]];
     
     NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
     [formatter setDateFormat:[formatString stringValue]];
