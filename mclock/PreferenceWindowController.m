@@ -21,10 +21,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 - (void)windowDidLoad
 {
@@ -78,7 +74,7 @@
     
     NSString *zone = [NSString stringWithFormat:[timeZone stringValue]];
     
-    NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:[formatString stringValue]];
     [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:zone]]; 
     

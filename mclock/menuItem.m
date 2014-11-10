@@ -32,16 +32,9 @@
 - (void)dealloc
 {
     [updateTimer invalidate];
-    [formatter release];
-    [updateTimer release];
-    [zone release];
-    [formatString release];
-    [statusItem release];
-    [prefix release];
 //    [statusTitle release];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
-    [super dealloc];
 }
 
 #pragma mark -
@@ -56,7 +49,7 @@
 
 - (void)awakeFromNib{
     
-    statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] retain];
+    statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     [statusItem setHighlightMode:YES];
     [statusItem setEnabled:YES];
     [statusItem setToolTip:@"Menu Clock"];
@@ -65,9 +58,9 @@
     [statusItem setMenu:statusMenu];
 //    statusTitle = [[NSString alloc] init];
     
-    zone = [[NSString stringWithFormat:@"CST"] retain]; //CST
-    formatString = [[NSString stringWithFormat:@"h.mm a"] retain];  //HH:MM
-    prefix = [[NSString stringWithFormat:@"%@ ", zone] retain];
+    zone = [NSString stringWithFormat:@"CST"]; //CST
+    formatString = [NSString stringWithFormat:@"h.mm a"];  //HH:MM
+    prefix = [NSString stringWithFormat:@"%@ ", zone];
     
     
   
@@ -79,11 +72,11 @@
     [self reload:nil];
     
     
-    updateTimer =[[NSTimer scheduledTimerWithTimeInterval:60.0
+    updateTimer =[NSTimer scheduledTimerWithTimeInterval:60.0
                                      target:self
                                    selector:@selector(updateLabel:)
                                    userInfo:nil
-                                    repeats:YES] retain];
+                                    repeats:YES];
     [updateTimer fire];
     
     
@@ -117,21 +110,12 @@
 - (void) reload: (id)notification{
     
     
-    if (zone) {
-        [zone release];
-    }
-    if (formatString) {
-        [formatString release];
-    }
     
-    if (prefix) {
-        [prefix release];
-    }
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     
-    zone = [[ud objectForKey:kZoneString] retain];
-    formatString = [[ud objectForKey:kDisplayFormatString] retain]; 
+    zone = [ud objectForKey:kZoneString];
+    formatString = [ud objectForKey:kDisplayFormatString]; 
 
     [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:zone]]; 
     [formatter setDateFormat:formatString];
@@ -144,7 +128,6 @@
     }
     
 //    NSLog(@"prefix: %@", prefix);
-    [prefix retain];
     
     
     [self updateLabel:nil];
