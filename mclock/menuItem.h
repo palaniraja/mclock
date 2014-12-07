@@ -19,6 +19,7 @@
     NSTimer *updateTimer;
     
     NSString *zone;
+    NSString *zoneName;
     NSString *formatString;
     NSString *prefix;
     NSString *statusTitle;

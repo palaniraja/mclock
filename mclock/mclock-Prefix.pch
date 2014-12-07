@@ -12,5 +12,9 @@
 #define kZoneString @"ZoneString"
 #define kDisplayFormatString @"DisplayFormatString"
 #define kDisplayZonePrefix @"DisplayZonePrefix"
+#define kDisplayZoneByNameOptionSelected @"TimezoneByNameSelected"
+
+
+#define kDisplayZoneNone @"None"
 
 #define kPreferencesUpdated @"PreferencesUpdated"

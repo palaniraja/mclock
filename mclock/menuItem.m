@@ -21,6 +21,7 @@
           @"IST", kZoneString,     
           @"h:mm a", kDisplayFormatString,
           [NSNumber numberWithBool:1], kDisplayZonePrefix,
+          kDisplayZoneNone, kDisplayZoneByNameOptionSelected,
           nil]];
         
 //        NSLog(@"Timezone abbrevation: %@", [NSTimeZone abbreviationDictionary]);
@@ -67,6 +68,9 @@
     
     formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:formatString];
+    
+//    NSString *timeZoneName =
+    
     [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:zone]]; 
     
     [self reload:nil];
@@ -115,9 +119,17 @@
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     
     zone = [ud objectForKey:kZoneString];
-    formatString = [ud objectForKey:kDisplayFormatString]; 
+    formatString = [ud objectForKey:kDisplayFormatString];
+    
+    zoneName = [ud objectForKey:kDisplayZoneByNameOptionSelected];
 
-    [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:zone]]; 
+    if (![zoneName isEqualToString:kDisplayZoneNone]) {
+        [formatter setTimeZone:[NSTimeZone timeZoneWithName:zoneName]];
+    }
+    else{
+        [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:zone]];
+    }
+    
     [formatter setDateFormat:formatString];
     
     
