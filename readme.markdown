@@ -2,7 +2,9 @@
 
 Additional menu clock for your Mac. A minimalist clock to display time of different timezone of your choice.   
 
-Power to you.  
+Power to you.
+
+[Download app](https://github.com/palaniraja/mclock/raw/master/binary/mclock.zip)  
 
 
 ![mclock in action](https://github.com/palaniraja/mclock/raw/master/screenshots/mclock-in-action.png "mclock in action")
