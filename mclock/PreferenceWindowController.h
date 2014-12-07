@@ -9,12 +9,16 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface PreferenceWindowController : NSWindowController {
+@interface PreferenceWindowController : NSWindowController <NSComboBoxDataSource, NSComboBoxDelegate>{
 @private
     IBOutlet NSTextField *timeZone;
     IBOutlet NSTextField *formatString;
     IBOutlet NSTextField *previewString;
     IBOutlet NSButton *displayPrefix;
+    
+    __unsafe_unretained IBOutlet NSComboBox *timezonePicker;
+    
+    NSMutableArray *timezoneNames;
 }
 
 - (IBAction) savePrefences:(id) sender;

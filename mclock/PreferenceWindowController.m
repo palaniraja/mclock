@@ -25,6 +25,14 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
+   
+    timezoneNames = [[NSTimeZone knownTimeZoneNames] mutableCopy];
+    [timezoneNames insertObject:@"None" atIndex:0];
+    
+    NSLog(@"timezones: %@", timezoneNames);
+//    timezonePicker.dataSource = self;
+    timezonePicker.delegate = self;
+    
     [self revertPrefences:nil];
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
@@ -100,4 +108,48 @@
 -(IBAction) openTimeZoneRef:(id)sender{
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://pastebin.com/tPCTDAip"]];
 }
+
+
+#pragma mark -Combo box
+
+- (NSInteger)numberOfItemsInComboBox:(NSComboBox *)aComboBox{
+    return [timezoneNames count];
+}
+- (id)comboBox:(NSComboBox *)aComboBox objectValueForItemAtIndex:(NSInteger)index{
+    return [NSString stringWithFormat:@"%@", [timezoneNames objectAtIndex:index]];
+//    return @"";
+}
+
+- (NSUInteger)comboBox:(NSComboBox *)aComboBox indexOfItemWithStringValue:(NSString *)string{
+    return 0;
+}
+
+//- (NSString *)comboBox:(NSComboBox *)aComboBox completedString:(NSString *)string{
+//    
+//}
+
+
+- (void)comboBoxSelectionDidChange:(NSNotification *)notification{
+    
+
+//    NSLog(@"sele. cell %@", [[timezonePicker selectedCell] title]);
+}
+
+- (void)comboBoxWillDismiss:(NSNotification *)notification{
+
+    NSString *selectedValue = [timezoneNames objectAtIndex:[timezonePicker indexOfSelectedItem]];
+    NSLog(@"Selected value: %@", selectedValue);
+    if (![selectedValue isEqualToString:@"None"]) {
+        //use the timezone prefix
+        timeZone.enabled = false;
+        displayPrefix.state = 0;
+        displayPrefix.enabled = false;
+        
+    }
+    else{
+        timeZone.enabled = true;
+        displayPrefix.enabled = true;
+    }
+}
+
 @end
