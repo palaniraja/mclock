@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AE62A8681449ED12007A5E1C /* mclock.icns in Resources */ = {isa = PBXBuildFile; fileRef = AE62A8671449ED12007A5E1C /* mclock.icns */; };
+		AE36BB5B1C4AF0FC00D88636 /* mclock.icns in Resources */ = {isa = PBXBuildFile; fileRef = AE36BB5A1C4AF0FC00D88636 /* mclock.icns */; };
+		AE36BB5D1C4AF13200D88636 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE36BB5C1C4AF13200D88636 /* Images.xcassets */; };
 		AE6872841446103600ABF25B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6872831446103600ABF25B /* Cocoa.framework */; };
 		AE68728E1446103600ABF25B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AE68728C1446103600ABF25B /* InfoPlist.strings */; };
 		AE6872911446103600ABF25B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6872901446103600ABF25B /* main.m */; };
@@ -20,7 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AE62A8671449ED12007A5E1C /* mclock.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = mclock.icns; sourceTree = "<group>"; };
+		AE36BB5A1C4AF0FC00D88636 /* mclock.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = mclock.icns; sourceTree = "<group>"; };
+		AE36BB5C1C4AF13200D88636 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AE36BB5E1C4AF15800D88636 /* mclock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = mclock.entitlements; sourceTree = "<group>"; };
 		AE68727F1446103600ABF25B /* mclock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mclock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE6872831446103600ABF25B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		AE6872861446103600ABF25B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -56,7 +59,7 @@
 		AE6872741446103600ABF25B = {
 			isa = PBXGroup;
 			children = (
-				AE62A8671449ED12007A5E1C /* mclock.icns */,
+				AE36BB5A1C4AF0FC00D88636 /* mclock.icns */,
 				AE6872891446103600ABF25B /* mclock */,
 				AE6872821446103600ABF25B /* Frameworks */,
 				AE6872801446103600ABF25B /* Products */,
@@ -93,6 +96,7 @@
 		AE6872891446103600ABF25B /* mclock */ = {
 			isa = PBXGroup;
 			children = (
+				AE36BB5E1C4AF15800D88636 /* mclock.entitlements */,
 				AE6872951446103600ABF25B /* mclockAppDelegate.h */,
 				AE6872961446103600ABF25B /* mclockAppDelegate.m */,
 				AE6872A81446126400ABF25B /* menuItem.h */,
@@ -101,6 +105,7 @@
 				AEFDAB42144A075400A9B51B /* PreferenceWindowController.h */,
 				AEFDAB43144A075400A9B51B /* PreferenceWindowController.m */,
 				AEFDAB3F144A073400A9B51B /* PreferenceWindow.xib */,
+				AE36BB5C1C4AF13200D88636 /* Images.xcassets */,
 				AE68728A1446103600ABF25B /* Supporting Files */,
 			);
 			path = mclock;
@@ -144,6 +149,16 @@
 		AE6872761446103600ABF25B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				TargetAttributes = {
+					AE68727E1446103600ABF25B = {
+						DevelopmentTeam = 2SG5945UT5;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = AE6872791446103600ABF25B /* Build configuration list for PBXProject "mclock" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -170,7 +185,8 @@
 				AE68728E1446103600ABF25B /* InfoPlist.strings in Resources */,
 				AE6872941446103600ABF25B /* Credits.rtf in Resources */,
 				AE68729A1446103700ABF25B /* MainMenu.xib in Resources */,
-				AE62A8681449ED12007A5E1C /* mclock.icns in Resources */,
+				AE36BB5D1C4AF13200D88636 /* Images.xcassets in Resources */,
+				AE36BB5B1C4AF0FC00D88636 /* mclock.icns in Resources */,
 				AEFDAB40144A073400A9B51B /* PreferenceWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,14 +272,19 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = mclock/mclock.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer: Samir Sood (D38JQ5UHVU)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mclock/mclock-Prefix.pch";
 				INFOPLIST_FILE = "mclock/mclock-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.palaniraja.mclock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -273,14 +294,19 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = mclock/mclock.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer: Samir Sood (D38JQ5UHVU)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mclock/mclock-Prefix.pch";
 				INFOPLIST_FILE = "mclock/mclock-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.palaniraja.mclock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
