@@ -14,15 +14,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
-    
-    
-//    [[NSUserDefaults standardUserDefaults] registerDefaults:    
-//                                             [NSDictionary dictionaryWithObjectsAndKeys:     
-//                                              @"IST", kZoneString,     
-//                                              @"hh:MM a", kDisplayFormatString,
-//                                              [NSNumber numberWithBool:1], kDisplayZonePrefix,
-//                                              nil]];
+
 
 }
 
