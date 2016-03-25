@@ -23,6 +23,7 @@
     NSString *formatString;
     NSString *prefix;
     NSString *statusTitle;
+    NSDictionary *attribDict;
     
     IBOutlet NSMenu *statusMenu;
     

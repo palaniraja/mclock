@@ -40,7 +40,10 @@
 
 #pragma mark -
 -(void) updateLabel:(id)sender{
-    [statusItem setTitle:[NSString stringWithFormat:@"%@%@", prefix, [formatter stringFromDate:[NSDate date]]]];
+    NSString *time2display = [NSString stringWithFormat:@"%@%@", prefix, [formatter stringFromDate:[NSDate date]]];
+    NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:time2display attributes:attribDict];
+    [statusItem setAttributedTitle:attrString];
+//    [statusItem setTitle:time2display];
 }
 
 - (void)awakeFromNib{
@@ -58,8 +61,10 @@
     formatString = [NSString stringWithFormat:@"h.mm a"];  //HH:MM
     prefix = [NSString stringWithFormat:@"%@ ", zone];
     
+    NSFont *font = [NSFont systemFontOfSize:[NSFont systemFontSize]];
+    attribDict = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
     
-  
+
     
     formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:formatString];
@@ -85,6 +90,10 @@
                                                object:nil];
     
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateTimeAsPerSystemTime:)
+                                                 name:NSSystemClockDidChangeNotification
+                                               object:nil];
     
     
 }
@@ -136,6 +145,11 @@
     
     [self updateLabel:nil];
     
+}
+
+- (void) updateTimeAsPerSystemTime: (NSNotification *) notify{
+    NSLog(@"updateTimeAsPerSystemTime called with %@", notify);
+    [self updateLabel:nil];
 }
 
 @end

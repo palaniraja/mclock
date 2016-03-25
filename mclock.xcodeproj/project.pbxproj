@@ -144,6 +144,11 @@
 		AE6872761446103600ABF25B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				TargetAttributes = {
+					AE68727E1446103600ABF25B = {
+						DevelopmentTeam = 2SG5945UT5;
+					};
+				};
 			};
 			buildConfigurationList = AE6872791446103600ABF25B /* Build configuration list for PBXProject "mclock" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -257,6 +262,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -274,6 +280,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
