@@ -1,13 +1,17 @@
-#mclock   
+#mclock 
 
-Additional menu clock for your Mac. A minimalist clock to display time of different timezone of your choice.   
+Additional menu clock for your Mac. A minimalist clock to display time of different timezone of your choice.  
 
-Power to you.  
+Power to you. 
+
+Refer: [Cheatsheet](cheatsheet.md) 
 
 
 ![mclock in action](https://github.com/palaniraja/mclock/raw/master/screenshots/mclock-in-action.png "mclock in action")
 
 ![Preferences](https://github.com/palaniraja/mclock/raw/master/screenshots/preferences.png "Preferences")
+
+
 
 ***
 ###License
