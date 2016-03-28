@@ -52,11 +52,16 @@
 <td>WET = "Europe/Lisbon" </td>
 <td>WIT = "Asia/Jakarta" </td>
     </tr>
+</table>
+
+Did you know you could also use the following formats?
+<table>
     <tr><td><mark>UTC+10 for Bali</mark> </td>
 <td><mark>GMT+10 for Brisbane </mark> </td>
 <td><mark>UTC-330 for Canada/Newfoundland </mark> </td>
     </tr>
 </table>
+
 
 
 
