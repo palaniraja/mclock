@@ -41,7 +41,7 @@
 
 #pragma mark -
 -(void) updateLabel:(id)sender{
-    NSLog(@"updateLabel called");
+//    NSLog(@"updateLabel called");
     
     NSString *time2display = [NSString stringWithFormat:@"%@%@", prefix, [formatter stringFromDate:[NSDate date]]];
     NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:time2display attributes:attribDict];
@@ -51,7 +51,7 @@
 
 - (void)awakeFromNib{
     
-    NSLog(@"awakefromNib");
+//    NSLog(@"awakefromNib");
     
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     [statusItem setHighlightMode:YES];
@@ -92,7 +92,7 @@
     
     double interval = 60.0 - [secVal doubleValue];
     
-    NSLog(@"timer to fire after %f", interval);
+//    NSLog(@"timer to fire after %f", interval);
     
     updateTimer =[NSTimer scheduledTimerWithTimeInterval:interval
                                                   target:self
@@ -136,7 +136,7 @@
 - (void) reload: (id)notification{
     
     
-    NSLog(@"reload called");
+//    NSLog(@"reload called");
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     
@@ -184,7 +184,7 @@
 }
 
 - (void) updateTimeAsPerSystemTime: (NSNotification *) notify{
-    NSLog(@"updateTimeAsPerSystemTime called with %@", notify);
+//    NSLog(@"updateTimeAsPerSystemTime called with %@", notify);
     [self updateLabel:nil];
 }
 
