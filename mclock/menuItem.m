@@ -14,7 +14,7 @@
 - (id)init
 {
     self = [super init];
-    NSLog(@"init");
+//    NSLog(@"init");
     if (self) {
         // Initialization code here.
         [[NSUserDefaults standardUserDefaults] registerDefaults:    

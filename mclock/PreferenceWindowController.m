@@ -134,12 +134,12 @@
 #pragma mark -
 
 -(IBAction) openTimeFormatRef:(id)sender{
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://unicode.org/reports/tr35/tr35-6.html#Date_Format_Patterns"]];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/palaniraja/mclock/blob/v22/cheatsheet.md"]];
 
 }
 
 -(IBAction) openTimeZoneRef:(id)sender{
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://pastebin.com/tPCTDAip"]];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/palaniraja/mclock/blob/v22/cheatsheet.md"]];
 }
 
 
