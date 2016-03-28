@@ -1,19 +1,17 @@
-##update 2016-01-20
+#mclock 
 
-I finally submitted to [Mac app store](https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1076119164&mt=12) for reaching more people. Thanks for your kind emails folks. I've a plan for this product & will be updating with more features.
+Additional menu clock for your Mac. A minimalist clock to display time of different timezone of your choice.  
 
-#mclock   
+Power to you. 
 
-Additional menu clock for your Mac. A minimalist clock to display time of different timezone of your choice.   
-
-Power to you.
-
-[Download app (via Mac App store)](https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1076119164&mt=12)  
+Refer: [Cheatsheet](cheatsheet.md) 
 
 
 ![mclock in action](https://github.com/palaniraja/mclock/raw/master/screenshots/mclock-in-action.png "mclock in action")
 
 ![Preferences](https://github.com/palaniraja/mclock/raw/master/screenshots/preferences.png "Preferences")
+
+
 
 ***
 ###License

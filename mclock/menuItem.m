@@ -14,6 +14,7 @@
 - (id)init
 {
     self = [super init];
+//    NSLog(@"init");
     if (self) {
         // Initialization code here.
         [[NSUserDefaults standardUserDefaults] registerDefaults:    
@@ -40,31 +41,35 @@
 
 #pragma mark -
 -(void) updateLabel:(id)sender{
+//    NSLog(@"updateLabel called");
     
-//    NSLog(@"Zone: %@ formatString: %@", zone, formatString);
-//    statusTitle = [NSString stringWithFormat:@"%@%@", prefix, [formatter stringFromDate:[NSDate date]]];
-//    NSLog(@"status title: %@", [NSString stringWithFormat:@"%@%@", prefix, [formatter stringFromDate:[NSDate date]]]);
-    
-    [statusItem setTitle:[NSString stringWithFormat:@"%@%@", prefix, [formatter stringFromDate:[NSDate date]]]];
+    NSString *time2display = [NSString stringWithFormat:@"%@%@", prefix, [formatter stringFromDate:[NSDate date]]];
+    NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:time2display attributes:attribDict];
+    [statusItem setAttributedTitle:attrString];
+//    [statusItem setTitle:time2display];
 }
 
 - (void)awakeFromNib{
     
+//    NSLog(@"awakefromNib");
+    
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     [statusItem setHighlightMode:YES];
     [statusItem setEnabled:YES];
-    [statusItem setToolTip:@"Menu Clock"];
+    [statusItem setToolTip:@"MClock"];
     [statusItem setAction:@selector(updateLabel:)];
     [statusItem setTarget:self];
     [statusItem setMenu:statusMenu];
 //    statusTitle = [[NSString alloc] init];
     
-    zone = [NSString stringWithFormat:@"CST"]; //CST
-    formatString = [NSString stringWithFormat:@"h.mm a"];  //HH:MM
-    prefix = [NSString stringWithFormat:@"%@ ", zone];
+//    zone = [NSString stringWithFormat:@"IST"]; //CST
+//    formatString = [NSString stringWithFormat:@"h.mm a"];  //HH:MM
+//    prefix = [NSString stringWithFormat:@"%@ ", zone];
     
+    NSFont *font = [NSFont systemFontOfSize:[NSFont systemFontSize]];
+    attribDict = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
     
-  
+
     
     formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:formatString];
@@ -75,13 +80,28 @@
     
     [self reload:nil];
     
+    /*
+     Find difference between next min
+     Set a timer to fire reload (which should invalidate the timer and call correctly)
+     */
     
-    updateTimer =[NSTimer scheduledTimerWithTimeInterval:60.0
-                                     target:self
-                                   selector:@selector(updateLabel:)
-                                   userInfo:nil
-                                    repeats:YES];
-    [updateTimer fire];
+    NSDate *now = [NSDate date];
+    NSDateFormatter *nextMinFormat = [[NSDateFormatter alloc] init];
+    [nextMinFormat setDateFormat:@"s"];
+    NSString *secVal = [nextMinFormat stringFromDate:now];
+    
+    double interval = 60.0 - [secVal doubleValue];
+    
+//    NSLog(@"timer to fire after %f", interval);
+    
+    updateTimer =[NSTimer scheduledTimerWithTimeInterval:interval
+                                                  target:self
+                                                selector:@selector(reload:)
+                                                userInfo:nil
+                                                 repeats:NO];
+//    [updateTimer fire];
+
+    
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -90,6 +110,10 @@
                                                object:nil];
     
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateTimeAsPerSystemTime:)
+                                                 name:NSSystemClockDidChangeNotification
+                                               object:nil];
     
     
 }
@@ -100,9 +124,7 @@
     if(!prefWindow){
         prefWindow = [[PreferenceWindowController alloc] init];  
     }
-        
-//    [prefWindow.window setLevel:NSScreenSaverWindowLevel + 1];
-//    [prefWindow.window makeKeyAndOrderFront:nil];
+    
     [NSApp activateIgnoringOtherApps:YES];
     
     [prefWindow showWindow:self];
@@ -114,7 +136,7 @@
 - (void) reload: (id)notification{
     
     
-    
+//    NSLog(@"reload called");
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     
@@ -139,11 +161,31 @@
         prefix = [NSString stringWithFormat:@""];
     }
     
-//    NSLog(@"prefix: %@", prefix);
+    if ([updateTimer isValid]) {
+        [updateTimer invalidate];
+    }
+    
+    double interval = 60.0;
+    
+    if ([formatString rangeOfString:@"s"].location != NSNotFound) {
+        interval = 1.0;
+    }
+    
+    updateTimer =[NSTimer scheduledTimerWithTimeInterval:interval
+                                                  target:self
+                                                selector:@selector(updateLabel:)
+                                                userInfo:nil
+                                                 repeats:YES];
+    [updateTimer fire];
     
     
     [self updateLabel:nil];
     
+}
+
+- (void) updateTimeAsPerSystemTime: (NSNotification *) notify{
+//    NSLog(@"updateTimeAsPerSystemTime called with %@", notify);
+    [self updateLabel:nil];
 }
 
 @end
