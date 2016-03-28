@@ -80,7 +80,27 @@
     
     [self reload:nil];
     
+    /*
+     Find difference between next min
+     Set a timer to fire reload (which should invalidate the timer and call correctly)
+     */
     
+    NSDate *now = [NSDate date];
+    NSDateFormatter *nextMinFormat = [[NSDateFormatter alloc] init];
+    [nextMinFormat setDateFormat:@"s"];
+    NSString *secVal = [nextMinFormat stringFromDate:now];
+    
+    double interval = 60.0 - [secVal doubleValue];
+    
+    NSLog(@"timer to fire after %f", interval);
+    
+    updateTimer =[NSTimer scheduledTimerWithTimeInterval:interval
+                                                  target:self
+                                                selector:@selector(reload:)
+                                                userInfo:nil
+                                                 repeats:NO];
+//    [updateTimer fire];
+
     
     
     
@@ -116,7 +136,7 @@
 - (void) reload: (id)notification{
     
     
-    
+    NSLog(@"reload called");
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     
