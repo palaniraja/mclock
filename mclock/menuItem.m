@@ -14,6 +14,7 @@
 - (id)init
 {
     self = [super init];
+    NSLog(@"init");
     if (self) {
         // Initialization code here.
         [[NSUserDefaults standardUserDefaults] registerDefaults:    
@@ -40,6 +41,8 @@
 
 #pragma mark -
 -(void) updateLabel:(id)sender{
+    NSLog(@"updateLabel called");
+    
     NSString *time2display = [NSString stringWithFormat:@"%@%@", prefix, [formatter stringFromDate:[NSDate date]]];
     NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:time2display attributes:attribDict];
     [statusItem setAttributedTitle:attrString];
@@ -47,6 +50,8 @@
 }
 
 - (void)awakeFromNib{
+    
+    NSLog(@"awakefromNib");
     
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     [statusItem setHighlightMode:YES];
@@ -57,9 +62,9 @@
     [statusItem setMenu:statusMenu];
 //    statusTitle = [[NSString alloc] init];
     
-    zone = [NSString stringWithFormat:@"IST"]; //CST
-    formatString = [NSString stringWithFormat:@"h.mm a"];  //HH:MM
-    prefix = [NSString stringWithFormat:@"%@ ", zone];
+//    zone = [NSString stringWithFormat:@"IST"]; //CST
+//    formatString = [NSString stringWithFormat:@"h.mm a"];  //HH:MM
+//    prefix = [NSString stringWithFormat:@"%@ ", zone];
     
     NSFont *font = [NSFont systemFontOfSize:[NSFont systemFontSize]];
     attribDict = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
@@ -76,7 +81,13 @@
     [self reload:nil];
     
     
-    updateTimer =[NSTimer scheduledTimerWithTimeInterval:60.0
+    double interval = 60.0;
+    
+    if ([formatString containsString:@"s"]) {
+        interval = 1.0;
+    }
+    
+    updateTimer =[NSTimer scheduledTimerWithTimeInterval:interval
                                      target:self
                                    selector:@selector(updateLabel:)
                                    userInfo:nil
