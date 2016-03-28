@@ -81,18 +81,7 @@
     [self reload:nil];
     
     
-    double interval = 60.0;
     
-    if ([formatString containsString:@"s"]) {
-        interval = 1.0;
-    }
-    
-    updateTimer =[NSTimer scheduledTimerWithTimeInterval:interval
-                                     target:self
-                                   selector:@selector(updateLabel:)
-                                   userInfo:nil
-                                    repeats:YES];
-    [updateTimer fire];
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -152,6 +141,22 @@
         prefix = [NSString stringWithFormat:@""];
     }
     
+    if ([updateTimer isValid]) {
+        [updateTimer invalidate];
+    }
+    
+    double interval = 60.0;
+    
+    if ([formatString rangeOfString:@"s"].location != NSNotFound) {
+        interval = 1.0;
+    }
+    
+    updateTimer =[NSTimer scheduledTimerWithTimeInterval:interval
+                                                  target:self
+                                                selector:@selector(updateLabel:)
+                                                userInfo:nil
+                                                 repeats:YES];
+    [updateTimer fire];
     
     
     [self updateLabel:nil];
