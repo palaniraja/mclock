@@ -6,6 +6,7 @@ Power to you.
 
 Refer: [Cheatsheet](cheatsheet.md) 
 
+[Download app (via Mac App store)](https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1076119164&mt=12)
 
 ![mclock in action](https://github.com/palaniraja/mclock/raw/master/screenshots/mclock-in-action.png "mclock in action")
 
