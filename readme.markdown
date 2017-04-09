@@ -1,4 +1,6 @@
-#mclock 
+# mclock 
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/palaniraja)
 
 Additional menu clock for your Mac. A minimalist clock to display time of different timezone of your choice.  
 
