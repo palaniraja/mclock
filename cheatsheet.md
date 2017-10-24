@@ -1,6 +1,6 @@
-#mclock - Cheatsheet
+# mclock - Cheatsheet
 
-##What are all the timezones available
+## What are all the timezones available
 
 <table>
     <tr><td>ADT = "America/Halifax" </td>
@@ -65,7 +65,7 @@ Did you know you could also use the following formats?
 
 
 
-##How to change what to display
+## How to change what to display
 
 <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
     <tbody><tr>
