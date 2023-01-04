@@ -8,7 +8,10 @@ Power to you.
 
 Refer: [Cheatsheet](cheatsheet.md) 
 
-[Download app (via Mac App store)](https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1076119164&mt=12)
+[Download app](https://github.com/palaniraja/mclock/raw/master/binary/mclock.zip) 
+
+**Note:** Apple removed the app from mac appstore because of no new update. It works for me and I do not see a need to update at the moment with more feature. Idea was to create an _app that does one thing well_. If you like the app, please consider donating.
+
 
 ![mclock in action](https://github.com/palaniraja/mclock/raw/master/screenshots/mclock-in-action.png "mclock in action")
 
