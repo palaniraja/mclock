@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E8EDAB32EBBC642000FBF54 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E8EDAB22EBBC642000FBF54 /* IOKit.framework */; };
 		AE36BB5B1C4AF0FC00D88636 /* mclock.icns in Resources */ = {isa = PBXBuildFile; fileRef = AE36BB5A1C4AF0FC00D88636 /* mclock.icns */; };
 		AE36BB5D1C4AF13200D88636 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE36BB5C1C4AF13200D88636 /* Images.xcassets */; };
 		AE6872841446103600ABF25B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6872831446103600ABF25B /* Cocoa.framework */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E8EDAB22EBBC642000FBF54 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		AE36BB5A1C4AF0FC00D88636 /* mclock.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = mclock.icns; sourceTree = "<group>"; };
 		AE36BB5C1C4AF13200D88636 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AE36BB5E1C4AF15800D88636 /* mclock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = mclock.entitlements; sourceTree = "<group>"; };
@@ -49,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E8EDAB32EBBC642000FBF54 /* IOKit.framework in Frameworks */,
 				AE6872841446103600ABF25B /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,6 +80,7 @@
 		AE6872821446103600ABF25B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6E8EDAB22EBBC642000FBF54 /* IOKit.framework */,
 				AE6872831446103600ABF25B /* Cocoa.framework */,
 				AE6872851446103600ABF25B /* Other Frameworks */,
 			);

@@ -208,7 +208,7 @@ Gw
                                                 <action selector="toggleCaffeinate:" target="-2" id="EyI-0K-5sJ"/>
                                             </connections>
                                         </button>
-                                        <button hidden="YES" id="ZRS-ep-kCo">
+                                        <button id="ZRS-ep-kCo">
                                             <rect key="frame" x="149" y="24" width="178" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="AssertPreventIdleActivity" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="dAD-Cq-uIz">
