@@ -16,13 +16,16 @@
     IBOutlet NSTextField *previewString;
     IBOutlet NSButton *displayPrefix;
     
+    IBOutlet NSButton *caffeinate;
+    IBOutlet NSButton *preventIdleActivity;
+    
     __unsafe_unretained IBOutlet NSComboBox *timezonePicker;
     
     NSMutableArray *timezoneNames;
 }
 
-- (IBAction) savePrefences:(id) sender;
-- (IBAction) revertPrefences:(id) sender;
+- (IBAction) savePreferences:(id) sender;
+- (IBAction) loadPreferences:(id) sender;
 - (IBAction) preview:(id) sender;
 
 -(IBAction) openTimeFormatRef:(id)sender;

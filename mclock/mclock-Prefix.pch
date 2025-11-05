@@ -18,3 +18,7 @@
 #define kDisplayZoneNone @"None"
 
 #define kPreferencesUpdated @"PreferencesUpdated"
+
+
+#define kCaffeinate @"Caffeinate"
+#define kAssertPreventIdleActivity @"AssertPreventIdleActivity"

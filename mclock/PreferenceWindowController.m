@@ -9,6 +9,10 @@
 #import "PreferenceWindowController.h"
 
 
+@interface PreferenceWindowController()
+    @property (nonatomic) NSTask *caffeinateTask;
+@end
+
 @implementation PreferenceWindowController
 
 - (id)initWithWindow:(NSWindow *)window
@@ -34,7 +38,7 @@
     timezonePicker.delegate = self;
     
     [timezonePicker reloadData];
-    [self revertPrefences:nil];
+    [self loadPreferences:nil];
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
@@ -54,12 +58,14 @@
 
 #pragma mark -
 #pragma mark UIAction
-- (IBAction) savePrefences:(id) sender{
+- (IBAction) savePreferences:(id) sender{
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     [ud setObject:[timeZone stringValue] forKey:kZoneString];
     [ud setObject:[formatString stringValue] forKey:kDisplayFormatString];
     [ud setBool:[displayPrefix state] forKey:kDisplayZonePrefix];
+    [ud setBool:[caffeinate state] forKey:kCaffeinate];
+    [ud setBool:[preventIdleActivity state] forKey:kAssertPreventIdleActivity];
     
     NSString *selectedTimeZoneName = [timezoneNames objectAtIndex:[timezonePicker indexOfSelectedItem]];
     
@@ -72,11 +78,14 @@
     
 }
 
-- (IBAction) revertPrefences:(id) sender{
+- (IBAction) loadPreferences:(id) sender{
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     [timeZone setStringValue:[ud objectForKey:kZoneString]];
     [formatString setStringValue:[ud objectForKey:kDisplayFormatString]];
     [displayPrefix setState:[ud boolForKey:kDisplayZonePrefix]];
+    
+    [caffeinate setState:[ud boolForKey:kCaffeinate]];
+    [preventIdleActivity setState:[ud boolForKey:kAssertPreventIdleActivity]];
     
     NSString *selectedTimeZoneName = [ud objectForKey:kDisplayZoneByNameOptionSelected];
     [timezonePicker selectItemAtIndex:[timezoneNames indexOfObject:selectedTimeZoneName]];
@@ -184,6 +193,62 @@
     else{
         timeZone.enabled = true;
         displayPrefix.enabled = true;
+    }
+}
+
+
+
+
+#pragma mark - caffeinate
+
+- (IBAction)toggleCaffeinate:(NSButton *)sender {
+    if ([sender state]) {
+        NSLog(@"toggleCaffeinate ON");
+        [self spawnCaffeinateTaskForTimeInterval:0];
+    } else {
+        NSLog(@"toggleCaffeinate OFF");
+        [self terminateCaffeinateTask];
+    }
+}
+
+- (void)spawnCaffeinateTaskForTimeInterval:(NSTimeInterval)timeInterval
+{
+    NSMutableArray<NSString *> *arguments = [NSMutableArray new];
+    [arguments addObject:@"-diu"];
+    if(timeInterval > 0)
+    {
+        [arguments addObject:[NSString stringWithFormat:@"-t %.f", timeInterval]];
+    }
+    [arguments addObject:[NSString stringWithFormat:@"-w %i",
+                          NSProcessInfo.processInfo.processIdentifier]];
+
+    self.caffeinateTask = [NSTask launchedTaskWithLaunchPath:@"/usr/bin/caffeinate"
+                                                   arguments:[arguments copy]];
+
+    self.caffeinateTask.terminationHandler = ^(NSTask *task) {
+        // Handle termination as needed
+        self.caffeinateTask = nil;
+    };
+    
+    NSLog(@"spawnCaffeinateTaskForTimeInterval with %f", timeInterval);
+}
+
+
+- (void)terminateCaffeinateTask
+{
+    self.caffeinateTask.terminationHandler = nil;
+    [self.caffeinateTask terminate];
+    self.caffeinateTask = nil;
+}
+
+
+#pragma mark - idle activity
+
+- (IBAction)toggleIdleActivity:(NSButton *)sender {
+    if ([sender state]) {
+        NSLog(@"toggleIdleActivity ON");
+    } else {
+        NSLog(@"toggleIdleActivity OFF");
     }
 }
 @end
