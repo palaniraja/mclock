@@ -7,16 +7,9 @@
 //
 
 #import "PreferenceWindowController.h"
-#include <IOKit/pwr_mgt/IOPMLib.h>
 
-@interface PreferenceWindowController()
-    @property (nonatomic) NSTask *caffeinateTask;
-    
-@end
 
 @implementation PreferenceWindowController
-
-    IOPMAssertionID _userActivityAssertion;
 
 - (id)initWithWindow:(NSWindow *)window
 {
@@ -87,9 +80,6 @@
     [formatString setStringValue:[ud objectForKey:kDisplayFormatString]];
     [displayPrefix setState:[ud boolForKey:kDisplayZonePrefix]];
     
-    [caffeinate setState:[ud boolForKey:kCaffeinate]];
-    [preventIdleActivity setState:[ud boolForKey:kAssertPreventIdleActivity]];
-    
     NSString *selectedTimeZoneName = [ud objectForKey:kDisplayZoneByNameOptionSelected];
     [timezonePicker selectItemAtIndex:[timezoneNames indexOfObject:selectedTimeZoneName]];
     
@@ -101,7 +91,11 @@
     }
     
     [previewString setStringValue:@""];
-
+    
+    [caffeinate setState:[ud boolForKey:kCaffeinate]];
+    
+    [preventIdleActivity setState:[ud boolForKey:kAssertPreventIdleActivity]];
+    
     [self close];
 }
 
@@ -200,86 +194,30 @@
 }
 
 
-
-
-#pragma mark - caffeinate
-
-- (IBAction)toggleCaffeinate:(NSButton *)sender {
+#pragma mark -
+-(IBAction)toggleCaffeinate:(NSButton *)sender {
     if ([sender state]) {
         NSLog(@"toggleCaffeinate ON");
-        [self spawnCaffeinateTaskForTimeInterval:0];
+//        [self spawnCaffeinateTaskForTimeInterval:0];
     } else {
         NSLog(@"toggleCaffeinate OFF");
-        [self terminateCaffeinateTask];
+//        [self terminateCaffeinateTask];
     }
+    [self savePreferences:nil];
 }
 
-- (void)spawnCaffeinateTaskForTimeInterval:(NSTimeInterval)timeInterval
-{
-    NSMutableArray<NSString *> *arguments = [NSMutableArray new];
-    [arguments addObject:@"-diu"];
-    if(timeInterval > 0)
-    {
-        [arguments addObject:[NSString stringWithFormat:@"-t %.f", timeInterval]];
-    }
-    [arguments addObject:[NSString stringWithFormat:@"-w %i",
-                          NSProcessInfo.processInfo.processIdentifier]];
-
-    self.caffeinateTask = [NSTask launchedTaskWithLaunchPath:@"/usr/bin/caffeinate"
-                                                   arguments:[arguments copy]];
-
-    self.caffeinateTask.terminationHandler = ^(NSTask *task) {
-        // Handle termination as needed
-        self.caffeinateTask = nil;
-    };
-    
-    NSLog(@"spawnCaffeinateTaskForTimeInterval with %f", timeInterval);
-}
-
-
-- (void)terminateCaffeinateTask
-{
-    self.caffeinateTask.terminationHandler = nil;
-    [self.caffeinateTask terminate];
-    self.caffeinateTask = nil;
-}
-
-
-#pragma mark - idle activity
 
 - (IBAction)toggleIdleActivity:(NSButton *)sender {
     if ([sender state]) {
         NSLog(@"toggleIdleActivity ON");
-        [self declareUserActivity];
+//        [self declareUserActivity];
     } else {
         NSLog(@"toggleIdleActivity OFF");
-        if (_userActivityAssertion == kIOPMNullAssertionID) {
-            IOPMAssertionRelease(_userActivityAssertion);
-        }
+//        if (_userActivityAssertion == kIOPMNullAssertionID) {
+//            IOPMAssertionRelease(_userActivityAssertion);
+//        }
     }
+    [self savePreferences:nil];
 }
 
-- (void)declareUserActivity
-{
-    // Release any previous assertion before creating a new one
-    if (_userActivityAssertion != kIOPMNullAssertionID) {
-        IOPMAssertionRelease(_userActivityAssertion);
-        _userActivityAssertion = kIOPMNullAssertionID;
-    }
-
-    // Create a short-lived "user is active" assertion to reset system idle timer
-    IOReturn result = IOPMAssertionCreateWithName(
-        kIOPMAssertionTypePreventUserIdleDisplaySleep,
-        kIOPMAssertionLevelOn,
-        CFSTR("mclock lldb"),
-        &_userActivityAssertion
-    );
-
-    if (result != kIOReturnSuccess) {
-        NSLog(@"mclock lldb activity (IOReturn = 0x%x)", result);
-    }
-    else {
-        NSLog(@"mclock lldb activity 0x%x", result);
-    }
-}
 @end

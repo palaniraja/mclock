@@ -28,8 +28,12 @@
     IBOutlet NSMenu *statusMenu;
     
     PreferenceWindowController *prefWindow;
+    bool caffeinateActive;
+    bool idleTimerActive;
     
 }
+
+@property (nonatomic) NSTask *caffeinateTask;
 
 -(void) updateLabel:(id)sender;
 
