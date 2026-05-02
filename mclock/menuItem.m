@@ -45,7 +45,7 @@
     
     NSString *time2display = [NSString stringWithFormat:@"%@%@", prefix, [formatter stringFromDate:[NSDate date]]];
     NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:time2display attributes:attribDict];
-    [statusItem setAttributedTitle:attrString];
+    statusItem.button.attributedTitle = attrString;
 //    [statusItem setTitle:time2display];
 }
 
@@ -54,12 +54,8 @@
 //    NSLog(@"awakefromNib");
     
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-    [statusItem setHighlightMode:YES];
-    [statusItem setEnabled:YES];
-    [statusItem setToolTip:@"MClock"];
-    [statusItem setAction:@selector(updateLabel:)];
-    [statusItem setTarget:self];
-    [statusItem setMenu:statusMenu];
+    statusItem.button.toolTip = @"MClock";
+    statusItem.menu = statusMenu;
 //    statusTitle = [[NSString alloc] init];
     
 //    zone = [NSString stringWithFormat:@"IST"]; //CST
